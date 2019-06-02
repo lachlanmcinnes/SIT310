@@ -1,0 +1,10 @@
+<launch>
+  <node pkg="rosserial_python" type="serial_node.py" name="rosserial" output="screen">
+    <param name="port" value="/dev/ttyACM0"/>
+  </node>
+  <node pkg="t" type="image.py" name="lachlan" output="screen"></node>
+  <node pkg="t" type="lt2.py" name="t1" output="screen"></node>
+  <node pkg="topic_tools" type="mux" name="mux_t" args="/zumo/t /zumo/1/t /zumo/2/t mux:=mux_t"></node>
+  <node pkg="t" type="intersection.py" name="t2" output="screen"></node>
+  <node pkg="t" type="gui.py" name="gui_v3" output="screen"></node>
+</launch>
